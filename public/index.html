@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function runPythonScript() {
+            $.ajax({
+                url: "/run-script",
+                type: "GET",
+                success: function (response) {
+                    // 서버에서 받은 결과를 출력
+                    $("#result").text(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <button onclick="runPythonScript()">Run Python Script</button>
+    <div id="result"></div>
+</body>
+</html>
